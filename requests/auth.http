@@ -1,3 +1,24 @@
-@api = http://localhost:3000/auth/login
+@api = http://localhost:3000/auth
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I5NzRmMTYwMDQ0MzIxNTgyNDZmNGUiLCJpYXQiOjE2NzMwOTg2ODcsImV4cCI6MTY3MzE4NTA4N30.RaVESj7qRtCiKYKQpTNq_iE4NTBAESaMDTa-rCSJhSA
 
-POST {{api}}
+### Signup
+POST {{api}}/signup
+Content-Type: application/json
+
+{
+  "email": "admin3@localhost",
+  "password": "password"
+}
+
+### Login
+POST {{api}}/login
+Content-Type: application/json
+
+{
+  "email": "admin3@localhost",
+  "password": "password"
+}
+
+### Profile
+GET {{api}}/profile
+AUthorization: Bearer {{token}}
