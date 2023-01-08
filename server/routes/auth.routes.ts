@@ -1,16 +1,18 @@
-import Router from 'express-promise-router'
+import Router from "express-promise-router";
 import {
   loginHandler,
   profileHandler,
   signupHandler,
 } from "../controllers/auth.controller";
 import { requireAuth } from "../middlewares/requireAuth";
+import { validateSchema } from "../middlewares/validateSchema";
+import { loginSchema, signupSchema } from "../schemas/user.schema";
 
 const router = Router();
 
-router.post("/signup", signupHandler);
+router.post("/signup", validateSchema(signupSchema), signupHandler);
 
-router.post("/login", loginHandler);
+router.post("/login", validateSchema(loginSchema), loginHandler);
 
 router.get("/profile", requireAuth, profileHandler);
 

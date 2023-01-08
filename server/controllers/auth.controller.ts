@@ -3,9 +3,12 @@ import jwt from "jsonwebtoken";
 import User from "../models/User";
 import { NotFound } from "http-errors";
 import { JWT_SECRET } from "../config";
+import { LoginSchemaType, SignupSchemaType } from "../schemas/user.schema";
 
-export const signupHandler = async (req: Request, res: Response) => {
-  console.log(req.body);
+export const signupHandler = async (
+  req: Request<unknow, unknown, SignupSchemaType>,
+  res: Response
+) => {
   // find existing user
   const userFound = await User.findOne({
     email: req.body.email,
@@ -37,7 +40,10 @@ export const signupHandler = async (req: Request, res: Response) => {
   });
 };
 
-export const loginHandler = async (req: Request, res: Response) => {
+export const loginHandler = async (
+  req: Request<unknow, unknown, LoginSchemaType>,
+  res: Response
+) => {
   console.log(req.body);
   // find existing user
   const userFound = await User.findOne({ email: req.body.email });
@@ -64,6 +70,8 @@ export const loginHandler = async (req: Request, res: Response) => {
 };
 
 export const profileHandler = async (req: Request, res: Response) => {
-  const userProfile = await User.findOne({ _id: req.user._id }).select('-password');
-  return res.json(userProfile)
+  const userProfile = await User.findOne({ _id: req.user._id }).select(
+    "-password"
+  );
+  return res.json(userProfile);
 };

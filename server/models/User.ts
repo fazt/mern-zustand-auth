@@ -2,7 +2,7 @@ import { prop, getModelForClass, modelOptions } from "@typegoose/typegoose";
 import bcrypt from "bcryptjs";
 
 @modelOptions({ schemaOptions: { timestamps: true } })
-class User {
+export class User {
   @prop({ required: true, type: String })
   email!: string;
 

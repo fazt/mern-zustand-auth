@@ -21,7 +21,8 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.3",
     "morgan": "^1.10.0",
-    "pg": "^8.8.0"
+    "pg": "^8.8.0",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
     "@typegoose/typegoose": "^10.0.0",

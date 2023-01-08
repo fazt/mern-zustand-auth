@@ -24,6 +24,7 @@ specifiers:
   pg: ^8.8.0
   ts-node-dev: ^2.0.0
   typescript: ^4.9.4
+  zod: ^3.20.2
 
 dependencies:
   bcryptjs: 2.4.3
@@ -36,6 +37,7 @@ dependencies:
   mongoose: 6.8.3
   morgan: 1.10.0
   pg: 8.8.0
+  zod: 3.20.2
 
 devDependencies:
   '@typegoose/typegoose': 10.0.0_mongoose@6.8.3
@@ -2858,3 +2860,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod/3.20.2:
+    resolution: {integrity: sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==}
+    dev: false

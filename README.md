@@ -8,8 +8,7 @@ git clone https://github.com/fazt/mern-zustand-auth
 
 # Todo
 
-- [ ] add validation with zod
-- [ ] create notes routes
+- [ ] add environment variables
 - [ ] upload images
 - [ ] add tests
 - [ ] password confirmation

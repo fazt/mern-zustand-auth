@@ -1,0 +1,25 @@
+@api = http://localhost:3000/api/notes
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I5NzRmMTYwMDQ0MzIxNTgyNDZmNGUiLCJpYXQiOjE2NzMxNTE5ODYsImV4cCI6MTY3MzIzODM4Nn0.SfBObmM9tqboTZhpjeXs3S7LeF7J9u6tiEVsPWUssJs
+
+### get notes
+GET {{api}}
+Authorization: Bearer {{token}}
+
+### create note
+POST {{api}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "third title",
+  "description": "note description",
+  "authorId": "63b974f16004432158246f4e"
+}
+
+### delete note
+DELETE {{api}}/63ba4ce645dbd5363caa4772
+Authorization: Bearer {{token}}
+
+### find note
+GET {{api}}/63ba4ce645dbd5363caa4772
+Authorization: Bearer {{token}}
