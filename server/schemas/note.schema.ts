@@ -8,9 +8,6 @@ export const createNoteSchema = z.object({
     description: z.string({
       required_error: "Description is required",
     }),
-    authorId: z.string({
-      required_error: "Author ID is required",
-    }),
   }),
 });
 

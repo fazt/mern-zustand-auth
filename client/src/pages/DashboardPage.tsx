@@ -1,23 +1,10 @@
-import { useEffect } from "react";
-import NoteCard from "../components/notes/NoteCard";
-import { useNotesStore } from "../store/notes";
+import NoteList from "../components/notes/NoteList";
 
 function DashboardPage() {
-  const getNotes = useNotesStore((state) => state.getNotes);
-  const notes = useNotesStore((state) => state.notes);
-
-  console.log({ notes });
-
-  useEffect(() => {
-    getNotes();
-  }, []);
-
   return (
-    <>
-      {notes.map((note) => (
-        <NoteCard key={note.id} note={note} />
-      ))}
-    </>
+    <main className="my-7">
+      <NoteList />
+    </main>
   );
 }
 

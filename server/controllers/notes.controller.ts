@@ -5,7 +5,9 @@ import { NotFound } from "http-errors";
 import { CreateNoteSchema } from "../schemas/note.schema";
 
 export const getNotes = async (req: Request, res: Response) => {
-  const notes = await Note.find();
+  const notes = await Note.find({
+    author: req.user._id,
+  });
   res.json(notes);
 };
 
@@ -13,17 +15,17 @@ export const createNote = async (
   req: Request<unknown, unknown, CreateNoteSchema>,
   res: Response
 ) => {
-  const { title, description, authorId } = req.body;
+  const { title, description } = req.body;
 
   // find note's author
-  const userFound = await User.findById(authorId);
+  const userFound = await User.findById(req.user._id);
   if (!userFound) throw new NotFound("User not found");
 
   // create a new note
   const newNote = new Note({
     title,
     description,
-    author: authorId,
+    author: req.user._id,
   });
 
   // save note

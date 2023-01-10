@@ -6,4 +6,13 @@ export const loginRequest = async (email: string, password: string) =>
     password,
   });
 
+interface registerData {
+  email: string;
+  password: string;
+  fullName: string;
+}
+
+export const registerRequest = async (data: registerData) =>
+  axios.post("/api/auth/register", data);
+
 export const profileRequest = async () => axios.get("/api/auth/profile");

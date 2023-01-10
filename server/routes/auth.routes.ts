@@ -10,7 +10,7 @@ import { loginSchema, signupSchema } from "../schemas/user.schema";
 
 const router = Router();
 
-router.post("/signup", validateSchema(signupSchema), signupHandler);
+router.post("/register", validateSchema(signupSchema), signupHandler);
 
 router.post("/login", validateSchema(loginSchema), loginHandler);
 

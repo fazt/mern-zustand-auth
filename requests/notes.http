@@ -13,7 +13,6 @@ Authorization: Bearer {{token}}
 {
   "title": "third title",
   "description": "note description",
-  "authorId": "63b974f16004432158246f4e"
 }
 
 ### delete note

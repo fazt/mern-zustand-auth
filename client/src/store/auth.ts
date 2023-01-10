@@ -1,15 +1,23 @@
 import create from "zustand";
 import { persist } from "zustand/middleware";
 
+export interface Profile {
+  _id: string;
+  email: string;
+  createdAt: Date;
+  updatedAt: Date;
+  __v: number;
+}
+
 type State = {
   token: string;
-  profile: any;
+  profile: Profile;
   isAuth: boolean;
 };
 
 type Actions = {
   setToken: (token: string) => void;
-  setProfile: (profile: any) => void;
+  setProfile: (profile: Profile) => void;
   logout: () => void;
 };
 
