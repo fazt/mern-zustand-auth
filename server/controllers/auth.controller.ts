@@ -6,7 +6,7 @@ import { JWT_SECRET } from "../config";
 import { LoginSchemaType, SignupSchemaType } from "../schemas/user.schema";
 
 export const signupHandler = async (
-  req: Request<unknow, unknown, SignupSchemaType>,
+  req: Request<unknown, unknown, SignupSchemaType>,
   res: Response
 ) => {
   // find existing user
@@ -41,7 +41,7 @@ export const signupHandler = async (
 };
 
 export const loginHandler = async (
-  req: Request<unknow, unknown, LoginSchemaType>,
+  req: Request<unknown, unknown, LoginSchemaType>,
   res: Response
 ) => {
   console.log(req.body);
