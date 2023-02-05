@@ -14,7 +14,8 @@ export const signupHandler = async (
     email: req.body.email,
   });
 
-  if (userFound) throw new NotFound("User already exists");
+  // throw with status code
+  if (userFound) return res.status(403).json([{ message: "Email is in use" }]);
 
   const newUser = new User({
     email: req.body.email,

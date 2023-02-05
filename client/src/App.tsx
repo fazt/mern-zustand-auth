@@ -6,7 +6,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { useAuthStore } from "./store/auth";
 
-import Container from "./components/Container";
+import { Container } from "./components/Container";
 
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";

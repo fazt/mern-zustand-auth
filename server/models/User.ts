@@ -19,5 +19,4 @@ export class User {
   }
 }
 
-const userModel = getModelForClass(User);
-export default userModel;
+export default getModelForClass(User);

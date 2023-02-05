@@ -1,10 +1,15 @@
 import { profileRequest, registerRequest } from "../api/auth";
 import { useAuthStore } from "../store/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { Errors } from "../components/Errors";
 
 function RegisterPage() {
-  const setToken = useAuthStore((state) => state.setToken);
-  const setProfile = useAuthStore((state) => state.setProfile);
+  const register = useAuthStore((state) => state.register);
+  const errors = useAuthStore((state) => state.errors);
+  const isAuth = useAuthStore((state) => state.isAuth);
+  const getProfile = useAuthStore((state) => state.getProfile);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -13,18 +18,13 @@ function RegisterPage() {
     const email = e.currentTarget.elements[1].value;
     const password = e.currentTarget.elements[2].value;
 
-    const resRegister = await registerRequest({
-      fullName,
-      email,
-      password,
-    });
-    setToken(resRegister.data.token);
-
-    const resProfile = await profileRequest();
-    setProfile(resProfile.data);
-
-    navigate("/dashboard");
+    await register({ fullName, email, password });
+    await getProfile();
   };
+
+  useEffect(() => {
+    if (isAuth) navigate("/dashboard");
+  }, [isAuth]);
 
   return (
     <div className="flex h-[calc(100vh-150px)] items-center justify-center">
@@ -33,6 +33,7 @@ function RegisterPage() {
         className="bg-zinc-800 max-w-md p-7 rounded-md"
       >
         <h1 className="my-5 font-bold text-5xl">Register</h1>
+        {errors && <Errors errors={errors} />}
 
         <label htmlFor="fullname">FullName:</label>
         <input
